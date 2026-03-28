@@ -12,29 +12,39 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
   color: #1e293b;
+}
+
+/* GLOBAL TITLES */
+section {
+  scroll-margin-top: 80px;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 /* HEADER */
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 2rem 10%;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
+  padding: 1.5rem 10%;
+  background: rgba(255,255,255,0.8);
   position: sticky;
   top: 0;
-}
-
-header h1 {
-  font-weight: 700;
+  z-index: 1000;
 }
 
 nav a {
-  margin-left: 25px;
+  margin-left: 20px;
   text-decoration: none;
   color: #1e293b;
   font-weight: 500;
@@ -47,171 +57,273 @@ nav a:hover {
 
 /* HERO */
 .hero {
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 5rem 10%;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 10%;
 }
 
-.hero-text h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.hero-text h1 {
+  font-size: 4rem;
+}
+
+.hero-text h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
 }
 
 .hero-text p {
-  margin-bottom: 1.2rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin-bottom: 1.5rem;
 }
 
 .hero img {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  width: 500px;
+  border-radius: 20px;
+  margin-left: 30px;
 }
 
-/* SECTION */
-section {
+/* BUTTONS */
+.btn {
+  padding: 12px 20px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+
+/* ABOUT */
+.about-section {
+  background: #1e3a8a;
+  color: white;
   padding: 4rem 10%;
+}
+
+.about-container {
+  display: flex;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.about-img {
+  flex: 1;
+}
+
+.about-img img {
+  width: 100%;
+  border-radius: 15px;
 }
 
 /* PROJECTS */
 .projects {
+  padding: 4rem 10%;
+}
+
+.project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   gap: 25px;
-  margin-top: 2rem;
 }
 
 .project {
   background: white;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 15px;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+
+.project img {
+  width: 100%;
+  border-radius: 10px;
+  height: 300px;
 }
 
 .project h3 {
+  margin: 10px 0;
+}
+
+/* SKILLS */
+.skills {
+  padding: 4rem 10%;
+  text-align: center;
+}
+
+.skill-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.skill-icons img {
+  width: 60px;
+}
+
+/* CONTACT */
+.contact-section {
+  padding: 4rem 10%;
+}
+
+.contact-container {
+  display: flex;
+  gap: 40px;
+}
+
+form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+form input, form textarea {
   margin-bottom: 10px;
+  padding: 10px;
 }
 
-/* BUTTON */
-.copy-btn {
-  margin-top: 10px;
-  padding: 10px 15px;
-  border: none;
-  background: #3b82f6;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+.contact-info {
+  flex: 1;
 }
 
-.copy-btn:hover {
-  background: #2563eb;
-}
-
-/* ABOUT + CONTACT */
-.about, .contact {
-  max-width: 600px;
-  margin-top: 1rem;
-  line-height: 1.8;
-}
-
-/* FOOTER */
 footer {
   text-align: center;
   padding: 2rem;
-  background: white;
-  margin-top: 2rem;
 }
+
+#logo{
+width: 10%;
+border-radius: 11px;
+}
+
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>PORTFOLIO</h1>
+  <h1><img src="high-resolution-color-logo.png" id="logo" alt=""></h1>
+
   <nav>
-    <a href="#projects">Projects</a>
+    <a href="#hero">Home</a>
     <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
+<!-- HERO -->
+<section class="hero" id="hero">
   <div class="hero-text">
-    <h2>Hi, I'm Pelumi 👋</h2>
-    <p>I create simple, useful websites based on real-world ideas.</p>
-    <p><strong>Learning Web Developer / Student</strong></p>
+    <h1>Hi, I'm Pelumi 👋</h1>
+    <h3>I build simple, useful, and real-world websites that solve everyday problems.</h3>
+    <p>
+      I'm a learning web developer passionate about creating clean, user-friendly experiences.
+      I enjoy turning ideas into real projects that people can actually use and benefit from.
+    </p>
+
+    <a href="#contact" class="btn">Let's Connect</a>
+    <a href="https://github.com/" class="btn">GitHub</a>
   </div>
 
-  <img src="WIN_20260319_11_01_17_Pro.jpg" alt="">
+  <img src="WIN_20260319_11_01_17_Pro.jpg" alt="Pelumi photo">
 </section>
 
-<section id="projects">
-  <h2>My Projects</h2>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <h2>ABOUT ME</h2>
 
-  <div class="projects">
+  <div class="about-container">
+    <div class="about-text">
+      <p>
+        I am a student learning web development with a strong focus on HTML, CSS, and JavaScript.
+        I enjoy building projects that have real-life use cases and help people in meaningful ways.
+      </p>
+
+      <p>
+        My goal is to become a skilled developer by continuously building, improving,
+        and learning new technologies step by step.
+      </p>
+    </div>
+
+    <div class="about-img">
+      <img src="WIN_20260319_11_01_17_Pro.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <h2>PROJECTS</h2>
+
+  <div class="project-grid">
 
     <div class="project">
+      <img src="Screenshot 2026-03-25 095342.png">
       <h3>PFA Tutorial Website</h3>
-      <p>A site that helps kids learn grammar using games and videos.</p>
-      <button class="copy-btn" onclick="copyText('https://pfatutorial-6xxkn8g5u-pelumis-projects-f771bc12.vercel.app/')">Copy Link</button>
+      <p>A learning platform for kids using games and videos.</p> <br>
+      <a href="https://pfatutorial-6xxkn8g5u-pelumis-projects-f771bc12.vercel.app/" class="btn" target="_blank">Visit</a>
     </div>
 
     <div class="project">
+      <img src="Screenshot 2026-03-25 095505.png">
       <h3>Store Website</h3>
-      <p>An e-commerce style site for buying and renting items.</p>
-      <button class="copy-btn" onclick="copyText('https://acture-site-lgcu4fzjv-pelumis-projects-f771bc12.vercel.app')">Copy Link</button>
-    </div>
-
-    <div class="project">
-      <h3>Kind Words Dictionary</h3>
-      <p>A site that helps people find kind and positive words.</p>
-      <button class="copy-btn" onclick="copyText('https://jan-feb-word-problem-kind-words.vercel.app/')">Copy Link</button>
+      <p>An e-commerce style site for buying and renting items.</p> <br>
+      <a href="https://acture-site-lgcu4fzjv-pelumis-projects-f771bc12.vercel.app" class="btn" target="_blank">Visit</a>
     </div>
 
   </div>
 </section>
 
-<section id="about">
-  <h2>About Me-</h2>
-  <p class="about">
-    I am a learning web developer working with HTML, CSS, and JavaScript.
-    I enjoy building projects that can help people in real life.
-    I also enjoy playing football and games like Minecraft.
-  </p>
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <h2>TECHNICAL SKILLS</h2>
+  <h3>Frontend</h3>
+
+  <div class="skill-icons">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png">
+  </div>
 </section>
 
-<section id="contact">
-  <h2>Contact-</h2>
-  <p class="contact">
-    Email- pelumifakintayo@gmail.com <br>
-    GitHub- Pelumi Akintayo
-  </p>
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <h2>GET IN TOUCH</h2>
+
+  <div class="contact-container">
+
+    <form>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+      <button class="btn">Send</button>
+    </form>
+
+    <div class="contact-info">
+      <p>Email: pelumifakintayo@gmail.com</p>
+      <p>GitHub: github.com</p>
+      <p>Location: Canada</p>
+    </div>
+
+  </div>
 </section>
 
 <footer>
   <p>© 2026 Pelumi</p>
 </footer>
-
-
-
-<script>
-function copyText(text) {
-  navigator.clipboard.writeText(text);
-  alert("Copied: " + text);
-}
-</script>
 
 </body>
 </html>
